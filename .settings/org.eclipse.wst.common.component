@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="CSIS3275_Project_BookGrapes">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/registrationdemo/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/registrationdemo/target/tmp/jsp"/>
+        <property name="context-root" value="CSIS3275_Project_BookGrapes"/>
+        <property name="java-output-path" value="/CSIS3275_Project_BookGrapes/registrationdemo/target/classes"/>
+    </wb-module>
+</project-modules>
