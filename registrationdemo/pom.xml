@@ -2,11 +2,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.user.wongi5</groupId>
-	<artifactId>registrationdemo</artifactId>
+	<groupId>com.user.nguyenm46</groupId>
+	<artifactId>BookGrapes</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>registrationdemo Maven Webapp</name>
+	<name>BookGrapes Webapp</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -96,7 +96,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>registrationdemo</finalName>
+		<finalName>BookGrapes</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
