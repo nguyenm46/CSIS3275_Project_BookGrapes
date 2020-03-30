@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.user.nguyenm46.dao.BookUserDao;
+import com.user.nguyenm46.dao.PublisherDao;
 import com.user.nguyenm46.dao.StudentDao;
 import com.user.nguyenm46.model.BookUser;
 import com.user.nguyenm46.model.LoginInfo;
+import com.user.nguyenm46.model.Publisher;
 import com.user.nguyenm46.model.Student;
+//Hsueh-Cheng Liu 300280496 
 
 @Controller
 @SessionAttributes("bookuser")
@@ -23,8 +26,8 @@ public class LoginController {
 	//(required = false)
 	@Autowired 
 	BookUserDao bookuserDao;
-//	@Autowired
-//	StudentDao studentDao;
+	@Autowired
+	PublisherDao publisherDao;
 
 	/**
 	 * Create new signUpForm object for empty from
@@ -44,8 +47,12 @@ public class LoginController {
 	@GetMapping("/login")
 	public String login(HttpSession session) {
 		BookUser bookuser = (BookUser) session.getAttribute("bookuser");
+		Publisher publisher =(Publisher) session.getAttribute("publisher");
 		if (bookuser != null) {
 			return "login-success";
+		}
+		else if (publisher != null) {
+			return "login-success-publisher";
 		}
 		return "login";
 	}
@@ -54,12 +61,18 @@ public class LoginController {
 	public String login(@ModelAttribute("loginInfo") LoginInfo loginInfo, Model model) {
 
 		BookUser bookuser = bookuserDao.findByEmail(loginInfo.getEmail());
+		Publisher publisher = publisherDao.findByEmail(loginInfo.getEmail());
 		model.addAttribute("message", "Login Fail");
 
 		if (bookuser != null && bookuser.getPassword().equals(loginInfo.getPassword())) {
 			model.addAttribute("bookuser", bookuser);
 			model.addAttribute("message", "Login Successful");
 			return "login-success";
+		}
+		else if (publisher != null && publisher.getPassword().equals(loginInfo.getPassword())) {
+			model.addAttribute("publisher", publisher);
+			model.addAttribute("message", "Login Successful as Publisher");
+			return "login-success-publisher";
 		}
 
 		return "login";
@@ -72,9 +85,15 @@ public class LoginController {
 	 */
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
+		Publisher publisher =(Publisher) session.getAttribute("publisher");
 		BookUser student = (BookUser) session.getAttribute("bookuser");
 		if (student != null) {
 			session.removeAttribute("bookuser");
+			return "logout";
+			// go to log out page
+		}
+		else if (publisher != null) {
+			session.removeAttribute("publisher");
 			return "logout";
 			// go to log out page
 		}

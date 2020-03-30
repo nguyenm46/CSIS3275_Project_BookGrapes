@@ -12,12 +12,11 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.user.nguyenm46.model.Book;
-import com.user.nguyenm46.model.BookUser;
-import com.user.nguyenm46.model.User;
+import com.user.nguyenm46.model.Publisher;
 //Hsueh-Cheng Liu 300280496 
 
 @Repository
-public class BookUserDaoImpl implements BookUserDao {
+public class PublisherDaoImpl implements PublisherDao {
 
 	NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
@@ -26,58 +25,55 @@ public class BookUserDaoImpl implements BookUserDao {
 		this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
 	}
 
-	public BookUser findByEmail(String email) {
+	public Publisher findByEmail(String email) {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("email", email);
 
-		String sql = "SELECT * FROM bookusers WHERE email=:email";
+		String sql = "SELECT * FROM publishers WHERE email=:email";
 
-		List<BookUser> results = namedParameterJdbcTemplate.query(sql, params, new BookUserMapper());
+		List<Publisher> results = namedParameterJdbcTemplate.query(sql, params, new PublisherMapper());
 
 		if (results.size() == 0) {
 			return null;
 		}
-		BookUser bookuser = results.get(0);
+		Publisher publisher = results.get(0);
 
-		List<Book> bookResults = findRegisteredBooks(bookuser.getEmail());
+		List<Book> bookResults = findPublishedBooks(publisher.getEmail());
 
-		bookuser.setBooklist(bookResults);
+		publisher.setBooklist(bookResults);
 
-		return bookuser;
+		return publisher;
 	}
 
-	public int registerBookByBookCode(String email, String code) {
+	public int publishedBookByBookCode(String email, String code) {
 
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("email", email);
 		params.put("code", code);
 
-		String sql = "INSERT INTO registrationsbooklist VALUES(:email, :code)";
+		String sql = "INSERT INTO publishedbooklist VALUES(:email, :code)";
 		return namedParameterJdbcTemplate.update(sql, params);
 	}
 
-	public List<Book> findRegisteredBooks(String email) {
+	public List<Book> findPublishedBooks(String email) {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("email", email);
 
-		String sql = "SELECT * FROM registrationsbooklist r, books b WHERE r.email=:email AND r.code=b.code;";
+		String sql = "SELECT * FROM publishedbooklist r, books b WHERE r.email=:email AND r.code=b.code;";
 
 		List<Book> bookResults = namedParameterJdbcTemplate.query(sql, params, new BookMapper());
 
 		return bookResults;
 	}
 
-	private static final class BookUserMapper implements RowMapper<BookUser> {
+	private static final class PublisherMapper implements RowMapper<Publisher> {
 
-		public BookUser mapRow(ResultSet rs, int rowNum) throws SQLException {
-			BookUser bookuser = new BookUser();
-			bookuser.setName(rs.getString("name"));
-			bookuser.setEmail(rs.getString("email"));
-			bookuser.setPassword(rs.getString("password"));
-
-			bookuser.setFullname(rs.getString("fullname"));
-			bookuser.setDob(rs.getString("dob"));
-			return bookuser;
+		public Publisher mapRow(ResultSet rs, int rowNum) throws SQLException {
+			Publisher publisher = new Publisher();
+			publisher.setName(rs.getString("name"));
+			publisher.setEmail(rs.getString("email"));
+			publisher.setPassword(rs.getString("password"));
+			return publisher;
 		}
 	}
 
@@ -91,22 +87,22 @@ public class BookUserDaoImpl implements BookUserDao {
 		}
 	}
 
-	public List<BookUser> findAll() {
+	public List<Publisher> findAll() {
 		Map<String, Object> params = new HashMap<String, Object>();
 
-		String sql = "SELECT * FROM bookusers";
+		String sql = "SELECT * FROM publishers";
 
-		List<BookUser> result = namedParameterJdbcTemplate.query(sql, params, new BookUserMapper());
+		List<Publisher> result = namedParameterJdbcTemplate.query(sql, params, new PublisherMapper());
 
 		return result;
 	}
 
-	public boolean addBookUser(BookUser bookUser) {
-		String sql = "insert into bookusers values('" + bookUser.getEmail() + "','"
-				+ bookUser.getName() + "','" + bookUser.getFullname() + "','" + bookUser.getDob() + "','"
-				+ bookUser.getPassword() + "')";
+	public boolean addPublisher(Publisher publisher) {
+		String sql = "insert into publishers values('" + publisher.getEmail() + "','"
+				+ publisher.getName() + "','"+ publisher.getPassword() + "')";
 		Map<String, Object> params = new HashMap<String, Object>();
 		boolean result = namedParameterJdbcTemplate.update(sql, params) == 1;
 		return result;
 	}
+
 }

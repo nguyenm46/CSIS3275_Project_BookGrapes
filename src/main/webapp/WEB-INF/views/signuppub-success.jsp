@@ -20,22 +20,16 @@
 			 
 			<table class="table table-striped table-bordered">
 				<tr>
-					<td><b>First Name </b>: ${bookuser.name}</td>
+					<td><b>Name </b>: ${publisher.name}</td>
 				</tr>
 				<tr>
-					<td><b>Last Name </b> : ${bookuser.fullname}</td>
-				</tr>
-				<tr>
-					<td><b>UserName </b> : ${bookuser.dob}</td>
-				</tr>
-				<tr>
-					<td><b>Email </b>: ${bookuser.email}</td>
+					<td><b>Email </b>: ${publisher.email}</td>
 				</tr>
 			</table>
 
-			<h2>${bookuser}</h2>
+			<h2>${publisher}</h2>
 			<br/>
-			<a href="backhome">home</a>
+			<a href="backhome2">home</a>
 		</div>
 	</div>
 </body>

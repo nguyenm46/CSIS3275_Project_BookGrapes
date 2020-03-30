@@ -17,25 +17,14 @@
 		<div class="col-md-offset-2 col-md-7">
 			<h1>${message}</h1>
 			<hr />
-			 
 			<table class="table table-striped table-bordered">
 				<tr>
-					<td><b>First Name </b>: ${bookuser.name}</td>
+					<td><b>Email </b>: ${publisher.email}</td>
 				</tr>
 				<tr>
-					<td><b>Last Name </b> : ${bookuser.fullname}</td>
-				</tr>
-				<tr>
-					<td><b>UserName </b> : ${bookuser.dob}</td>
-				</tr>
-				<tr>
-					<td><b>Email </b>: ${bookuser.email}</td>
+					<td><b>Name </b> : ${publisher.name}</td>
 				</tr>
 			</table>
-
-			<h2>${bookuser}</h2>
-			<br/>
-			<a href="backhome">home</a>
 		</div>
 	</div>
 </body>

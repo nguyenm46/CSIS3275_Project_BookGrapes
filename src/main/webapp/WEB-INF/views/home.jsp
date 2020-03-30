@@ -17,7 +17,10 @@
 		<div class="col-md-offset-2 col-md-7">
 			<a href="login">Log in</a>
 			<br/>
-			<a href="showSignUpForm">Sign up</a>
+			<a href="showSignUpForm">Sign up as user</a>
+			<br/>
+			<a href="showSignUpFormPub">Sign up as publisher</a>
+			<br/>
 		</div>
 	</div>
 </body>

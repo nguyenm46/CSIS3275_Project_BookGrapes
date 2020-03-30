@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.user.nguyenm46.dao.BookUserDao;
-import com.user.nguyenm46.dao.UserDao;
 import com.user.nguyenm46.model.BookUser;
-import com.user.nguyenm46.model.User;
 
+//Hsueh-Cheng Liu 300280496 
 @Controller
 public class SignUpController {
 
@@ -21,6 +20,8 @@ public class SignUpController {
 //	UserDao userDao;
 	@Autowired
 	BookUserDao bookuserDao;
+	
+
 	
 	/**
 	 * Create new signUpForm object for empty from
@@ -31,6 +32,8 @@ public class SignUpController {
 	public BookUser setSignUpForm() {
 		return new BookUser();
 	}
+	
+
 
 	/**
 	 * Method to show the initial HTML form
@@ -41,6 +44,12 @@ public class SignUpController {
 	public String showForm() {
 		return "signup-form";
 	}
+	
+	@GetMapping("/backhome")
+	public String backHome() {
+		return "home";
+	}
+
 
 	/**
 	 * Save User sign up form
@@ -80,6 +89,7 @@ public class SignUpController {
 		  
 		return "signup-success";
 	}
+	
 	
 
 }

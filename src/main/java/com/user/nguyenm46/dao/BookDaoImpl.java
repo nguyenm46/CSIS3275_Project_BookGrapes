@@ -12,6 +12,8 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import com.user.nguyenm46.model.Book;
 
+//Hsueh-Cheng Liu 300280496 
+
 public class BookDaoImpl implements BookDao {
 
 	NamedParameterJdbcTemplate namedParameterJdbcTemplate;
