@@ -11,4 +11,6 @@ public interface BookDao {
 	Book findByCode(String name);
 	
 	List<Book> findAll();
+	
+	boolean addBook(Book book, String size);
 }

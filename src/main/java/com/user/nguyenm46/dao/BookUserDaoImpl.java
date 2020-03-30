@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.user.nguyenm46.model.Book;
 import com.user.nguyenm46.model.BookUser;
-import com.user.nguyenm46.model.User;
+
 //Hsueh-Cheng Liu 300280496 
 
 @Repository

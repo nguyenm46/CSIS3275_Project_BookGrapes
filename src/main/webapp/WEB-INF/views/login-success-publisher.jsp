@@ -24,6 +24,12 @@
 				<tr>
 					<td><b>Name </b> : ${publisher.name}</td>
 				</tr>
+				<br />
+				<a href="showRegisterNewBook">home</a>
+<!-- 				<br />
+				<a href="editbook">home</a>
+				<br />
+				<a href="listsellers">home</a> -->
 			</table>
 		</div>
 	</div>
