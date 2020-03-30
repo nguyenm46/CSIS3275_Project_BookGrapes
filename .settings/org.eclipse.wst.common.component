@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="CSIS3275_Project_BookGrapes">
-        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/registrationdemo/src/main/java"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/registrationdemo/target/tmp/jsp"/>
-        <property name="context-root" value="CSIS3275_Project_BookGrapes"/>
-        <property name="java-output-path" value="/CSIS3275_Project_BookGrapes/registrationdemo/target/classes"/>
+        
+    <wb-module deploy-name="BookGrapes">
+                
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+                
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+                
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+                
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+                
+        <property name="java-output-path" value="/BookGrapes/target/classes"/>
+        <property name="context-root" value="BookGrapes"/>
+            
     </wb-module>
+    
 </project-modules>
