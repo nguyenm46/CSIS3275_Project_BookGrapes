@@ -4,8 +4,9 @@ DROP TABLE students IF EXISTS;
 DROP TABLE courses IF EXISTS;
 DROP TABLE registrationsbooklist IF EXISTS;
 DROP TABLE bookusers IF EXISTS;
+DROP TABLE publishedbooklist IF EXISTS;
 DROP TABLE books IF EXISTS;
-
+DROP TABLE publishers IF EXISTS;
 
 CREATE TABLE users (
   id         INTEGER PRIMARY KEY,
@@ -50,5 +51,18 @@ CREATE TABLE registrationsbooklist(
   email VARCHAR(50),
   code VARCHAR(50),
   foreign key (email) references bookusers(email),
+  foreign key (code) references books(code)
+);
+
+CREATE TABLE publishers (
+  email VARCHAR (50) PRIMARY KEY,
+  name VARCHAR (30),
+  password VARCHAR (50)
+);
+
+CREATE TABLE publishedbooklist(
+  email VARCHAR(50),
+  code VARCHAR(50),
+  foreign key (email) references publishers(email),
   foreign key (code) references books(code)
 );

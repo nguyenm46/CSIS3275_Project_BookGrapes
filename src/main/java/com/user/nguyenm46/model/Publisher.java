@@ -4,11 +4,9 @@ import java.util.List;
 
 //Hsueh-Cheng Liu 300280496 
 
-public class BookUser {
+public class Publisher {
 	private String email;
 	private String name;
-	private String fullname;
-	private String dob;
 	private String password;
 	private List<Book> booklist;
 	
@@ -24,18 +22,6 @@ public class BookUser {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getFullname() {
-		return fullname;
-	}
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
-	}
-	public String getDob() {
-		return dob;
-	}
-	public void setDob(String dob) {
-		this.dob = dob;
-	}
 	public String getPassword() {
 		return password;
 	}
@@ -47,8 +33,6 @@ public class BookUser {
 	}
 	public void setBooklist(List<Book> booklist) {
 		this.booklist = booklist;
-	}
-	
-	
+	}	
 	
 }

@@ -12,4 +12,6 @@ INSERT INTO registrations VALUES('wongi5@douglascollege.ca', 'CSIS1275');
 
 INSERT INTO bookusers VALUES('test@gmail.com', 'admin', 'test admin','1986-10-26', '123456');
 
-INSERT INTO books VALUES('b1','test book 1','GOD','2019');
+INSERT INTO books VALUES('0','test book 1','GOD','2019');
+
+INSERT INTO publishers VALUES('admin@gmail.com','admin','123456');
