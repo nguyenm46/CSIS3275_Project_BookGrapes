@@ -52,7 +52,7 @@ public class BookUserDaoImpl implements BookUserDao {
 		params.put("email", email);
 		params.put("code", code);
 
-		String sql = "INSERT INTO registrationsbooklist VALUES(:email, :code)";
+		String sql = "INSERT INTO user_booklists VALUES(:email, :code)";
 		return namedParameterJdbcTemplate.update(sql, params);
 	}
 
@@ -60,7 +60,7 @@ public class BookUserDaoImpl implements BookUserDao {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("email", email);
 
-		String sql = "SELECT * FROM registrationsbooklist r, books b WHERE r.email=:email AND r.code=b.code;";
+		String sql = "SELECT * FROM user_booklists r, books b WHERE r.email=:email AND r.code=b.code;";
 
 		List<Book> bookResults = namedParameterJdbcTemplate.query(sql, params, new BookMapper());
 
@@ -71,7 +71,7 @@ public class BookUserDaoImpl implements BookUserDao {
 
 		public BookUser mapRow(ResultSet rs, int rowNum) throws SQLException {
 			BookUser bookuser = new BookUser();
-			bookuser.setName(rs.getString("name"));
+			bookuser.setUsername(rs.getString("username"));
 			bookuser.setEmail(rs.getString("email"));
 			bookuser.setPassword(rs.getString("password"));
 
@@ -103,7 +103,7 @@ public class BookUserDaoImpl implements BookUserDao {
 
 	public boolean addBookUser(BookUser bookUser) {
 		String sql = "insert into bookusers values('" + bookUser.getEmail() + "','"
-				+ bookUser.getName() + "','" + bookUser.getFullname() + "','" + bookUser.getDob() + "','"
+				+ bookUser.getUsername() + "','" + bookUser.getFullname() + "','" + bookUser.getDob() + "','"
 				+ bookUser.getPassword() + "')";
 		Map<String, Object> params = new HashMap<String, Object>();
 		boolean result = namedParameterJdbcTemplate.update(sql, params) == 1;

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>javaguides.net</title>
+<title>BookGrapes - User</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
@@ -20,10 +20,10 @@
 			 
 			<table class="table table-striped table-bordered">
 				<tr>
-					<td><b>First Name </b>: ${bookuser.name}</td>
+					<td><b>Username</b>: ${bookuser.username}</td>
 				</tr>
 				<tr>
-					<td><b>Last Name </b> : ${bookuser.fullname}</td>
+					<td><b>Full Name </b> : ${bookuser.fullname}</td>
 				</tr>
 				<tr>
 					<td><b>UserName </b> : ${bookuser.dob}</td>

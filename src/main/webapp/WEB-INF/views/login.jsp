@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Log-in</title>
+<title>BookGrapes - Login</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
@@ -17,7 +17,7 @@
 <body>
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
-			<h2 class="text-center">Log-in: ${message}</h2>
+			<h2 class="text-center">Log-in ${message}</h2>
 			<div class="panel panel-info">
 				<div class="panel-body">
 					<form:form action="login" cssClass="form-horizontal" method="post"
