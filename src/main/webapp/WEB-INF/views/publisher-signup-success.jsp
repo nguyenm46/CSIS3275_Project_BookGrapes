@@ -17,20 +17,19 @@
 		<div class="col-md-offset-2 col-md-7">
 			<h1>${message}</h1>
 			<hr />
+			 
 			<table class="table table-striped table-bordered">
+				<tr>
+					<td><b>Name </b>: ${publisher.name}</td>
+				</tr>
 				<tr>
 					<td><b>Email </b>: ${publisher.email}</td>
 				</tr>
-				<tr>
-					<td><b>Name </b> : ${publisher.name}</td>
-				</tr>
-				<br />
-				<a href="showRegisterNewBook">home</a>
-<!-- 				<br />
-				<a href="editbook">home</a>
-				<br />
-				<a href="listsellers">home</a> -->
 			</table>
+
+			<!-- <h2>${publisher}</h2> -->
+			<br/>
+			<a href="home2">Back to Homepage</a>
 		</div>
 	</div>
 </body>

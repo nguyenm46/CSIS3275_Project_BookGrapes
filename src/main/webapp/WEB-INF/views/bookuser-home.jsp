@@ -15,7 +15,7 @@
 <body>
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
-			<h1>${message}</h1>
+			<h1>${message} ${bookuser.name}!</h1>
 			<hr />
 			<table class="table table-striped table-bordered">
 				<tr>
@@ -25,6 +25,13 @@
 					<td><b>Name </b> : ${bookuser.name}</td>
 				</tr>
 			</table>
+			<br/>
+			<a href="searchBook">Search books</a>
+			<br/> 
+			<a href="showUserBooklists">Manage booklists</a>
+			<br/> 
+			<a href="home1">Back to Homepage</a>
+			<br/>
 		</div>
 	</div>
 </body>

@@ -33,9 +33,9 @@
 				</tr>
 			</table>
 
-			<h2>${bookuser}</h2>
+			<!-- <h2>${bookuser}</h2> -->
 			<br/>
-			<a href="backhome">home</a>
+			<a href="home1">Back to Homepage</a>
 		</div>
 	</div>
 </body>

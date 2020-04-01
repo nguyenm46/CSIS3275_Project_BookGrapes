@@ -49,10 +49,10 @@ public class LoginController {
 		BookUser bookuser = (BookUser) session.getAttribute("bookuser");
 		Publisher publisher =(Publisher) session.getAttribute("publisher");
 		if (bookuser != null) {
-			return "login-success";
+			return "bookuser-home";
 		}
 		else if (publisher != null) {
-			return "login-success-publisher";
+			return "publisher-home";
 		}
 		return "login";
 	}
@@ -66,13 +66,13 @@ public class LoginController {
 
 		if (bookuser != null && bookuser.getPassword().equals(loginInfo.getPassword())) {
 			model.addAttribute("bookuser", bookuser);
-			model.addAttribute("message", "Login Successful");
-			return "login-success";
+			model.addAttribute("message", "Welcome back");
+			return "bookuser-home";
 		}
 		else if (publisher != null && publisher.getPassword().equals(loginInfo.getPassword())) {
 			model.addAttribute("publisher", publisher);
-			model.addAttribute("message", "Login Successful as Publisher");
-			return "login-success-publisher";
+			model.addAttribute("message", "Welcome back");
+			return "publisher-home";
 		}
 
 		return "login";
