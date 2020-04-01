@@ -15,6 +15,11 @@
 <body>
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
+		<br/>
+			<h1>Welcome to BookGrapes</h1>
+			<h4>- your online bookshelf</h4>
+			<hr />
+			<br/>
 			<a href="login">Log in</a>
 			<br/>
 			<a href="showSignUpForm">Sign up as user</a>

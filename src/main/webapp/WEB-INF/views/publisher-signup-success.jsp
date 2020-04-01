@@ -27,9 +27,9 @@
 				</tr>
 			</table>
 
-			<h2>${publisher}</h2>
+			<!-- <h2>${publisher}</h2> -->
 			<br/>
-			<a href="backhome2">home</a>
+			<a href="home2">Back to Homepage</a>
 		</div>
 	</div>
 </body>

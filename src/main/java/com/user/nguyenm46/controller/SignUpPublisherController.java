@@ -36,9 +36,9 @@ public class SignUpPublisherController {
 	 */
 	@GetMapping("/showSignUpFormPub")
 	public String showFormPub() {
-		return "signuppub-form";
+		return "publisher-signup";
 	}
-	@GetMapping("/backhome2")
+	@GetMapping("/home2")
 	public String backHome2() {
 		return "home";
 	}
@@ -64,20 +64,18 @@ public class SignUpPublisherController {
 
 		System.out.println(publishers);
 
-		model.addAttribute("publishers", publishers);
+		// model.addAttribute("publishers", publishers);
 
-//		model.addAttribute("message", "User SignUp successfully.");
-//		model.addAttribute("user", user);
 
 		// insert info to sql
 
 		boolean result = publisherDao.addPublisher(publisher);
 		if (result)
-			model.addAttribute("message", "<script>alert('Successed!')</script>");
+			model.addAttribute("message", "<script>alert('You have successfully signed up!')</script>");
 		else
-			model.addAttribute("message", "<script>alert('Successed!')</script>");
+			model.addAttribute("message", "<script>alert('You have successfully signed up!')</script>");
 
-		return "signuppub-success";
+		return "publisher-signup-success";
 	}
 	
 

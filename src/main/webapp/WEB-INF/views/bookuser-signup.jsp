@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Spring MVC 5 - form handling | Java Guides</title>
+<title>BookGrapes - User</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
@@ -16,19 +16,17 @@
 <body>
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
-			<h2 class="text-center">Spring MVC 5 Form Handling Example -
-				Sign up Form</h2>
+			<h2 class="text-center">User Sign-up Form</h2>
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<div class="panel-title">Sign Up</div>
+					<div class="panel-title"> </div>
 				</div>
 				<div class="panel-body">
 					<form:form action="saveSignUpForm" cssClass="form-horizontal"
 						method="post" modelAttribute="bookuser">
 
 						<div class="form-group">
-							<label for="name" class="col-md-3 control-label">
-								Name</label>
+							<label for="name" class="col-md-3 control-label">Username</label>
 							<div class="col-md-9">
 								<form:input path="name" cssClass="form-control" />
 							</div>
@@ -42,7 +40,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="dob" class="col-md-3 control-label">DOB </label>
+							<label for="dob" class="col-md-3 control-label">D.O.B </label>
 							<div class="col-md-9">
 								<form:input path="dob" cssClass="form-control" />
 							</div>

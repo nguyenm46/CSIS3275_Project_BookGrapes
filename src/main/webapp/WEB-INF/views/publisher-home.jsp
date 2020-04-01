@@ -15,7 +15,7 @@
 <body>
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
-			<h1>${message}</h1>
+			<h1>${message} ${publisher.name}!</h1>
 			<hr />
 			<table class="table table-striped table-bordered">
 				<tr>
@@ -24,13 +24,14 @@
 				<tr>
 					<td><b>Name </b> : ${publisher.name}</td>
 				</tr>
-				<br />
-				<a href="showRegisterNewBook">home</a>
-<!-- 				<br />
-				<a href="editbook">home</a>
-				<br />
-				<a href="listsellers">home</a> -->
 			</table>
+			<br/>
+			<a href="showRegisterNewBook">Add a new book</a>
+			<br/> 
+			<a href="showPublishedBooks">Manage published books</a>
+			<br/> 
+			<a href="home2">Back to Homepage</a>
+			<br/> 
 		</div>
 	</div>
 </body>

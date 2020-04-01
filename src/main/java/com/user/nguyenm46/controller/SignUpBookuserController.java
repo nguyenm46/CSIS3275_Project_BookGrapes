@@ -14,7 +14,7 @@ import com.user.nguyenm46.model.BookUser;
 
 //Hsueh-Cheng Liu 300280496 
 @Controller
-public class SignUpController {
+public class SignUpBookuserController {
 
 //	@Autowired
 //	UserDao userDao;
@@ -42,10 +42,10 @@ public class SignUpController {
 	 */
 	@GetMapping("/showSignUpForm")
 	public String showForm() {
-		return "signup-form";
+		return "bookuser-signup";
 	}
 	
-	@GetMapping("/backhome")
+	@GetMapping("/home1")
 	public String backHome() {
 		return "home";
 	}
@@ -74,7 +74,7 @@ public class SignUpController {
 
 		System.out.println(bookusers);
 
-		model.addAttribute("bookusers", bookusers);
+		//model.addAttribute("bookusers", bookusers);
 				
 //		model.addAttribute("message", "User SignUp successfully.");
 //		model.addAttribute("user", user);
@@ -83,11 +83,11 @@ public class SignUpController {
 		//INSERT INTO bookusers VALUES('test@gmail.com', 'admin', 'test admin','1986-10-26', '123456');
 		boolean result = bookuserDao.addBookUser(bookuser);
 		  if (result)
-		    model.addAttribute("message", "<script>alert('Successed!')</script>");
+		    model.addAttribute("message", "<script>alert('You have successfully signed up!')</script>");
 		  else
-		    model.addAttribute("message", "<script>alert('Successed!')</script>");
+		    model.addAttribute("message", "<script>alert('You have successfully signed up!!')</script>");
 		  
-		return "signup-success";
+		return "bookuser-signup-success";
 	}
 	
 	

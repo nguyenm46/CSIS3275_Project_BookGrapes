@@ -2,12 +2,12 @@
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/dao/UserDaoImpl.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/dao/BookUserDaoImpl.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/controller/RegisterNewBookController.java
+/Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/controller/SignUpBookuserController.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/model/BookUser.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/config/db/H2DataSource.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/config/RootConfig.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/dao/BookDao.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/controller/LoginController.java
-/Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/model/HelloWorld.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/dao/CourseDao.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/controller/SignUpPublisherController.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/model/Course.java
@@ -15,9 +15,7 @@
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/model/Student.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/model/Publisher.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/dao/PublisherDaoImpl.java
-/Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/controller/HelloWorldController.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/model/User.java
-/Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/controller/SignUpController.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/model/Book.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/dao/StudentDao.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/dao/StudentDaoImpl.java
