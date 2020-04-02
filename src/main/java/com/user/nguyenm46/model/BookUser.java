@@ -49,6 +49,4 @@ public class BookUser {
 		this.booklist = booklist;
 	}
 	
-	
-	
 }
