@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>javaguides.net</title>
+<title>BookGrapes - User</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
@@ -15,14 +15,17 @@
 <body>
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
-			<h1>${message} ${bookuser.name}!</h1>
+			<h1>${message} ${bookuser.fullname}!</h1>
 			<hr />
 			<table class="table table-striped table-bordered">
 				<tr>
-					<td><b>Email </b>: ${bookuser.email}</td>
+					<td><b>Username </b>: ${bookuser.username}</td>
 				</tr>
 				<tr>
-					<td><b>Name </b> : ${bookuser.name}</td>
+					<td><b>Name </b> : ${bookuser.fullname}</td>
+				</tr>
+				<tr>
+					<td><b>Email </b>: ${bookuser.email}</td>
 				</tr>
 			</table>
 			<br/>

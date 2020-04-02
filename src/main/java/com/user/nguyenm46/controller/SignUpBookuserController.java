@@ -64,7 +64,7 @@ public class SignUpBookuserController {
 		// Implement business logic to save user details into a database
 		// .....
 
-		System.out.println("Name : " + bookuser.getName());
+		System.out.println("Username : " + bookuser.getUsername());
 		System.out.println("FullName : " + bookuser.getFullname());
 		System.out.println("DOB : " + bookuser.getDob());
 		System.out.println("Password : " + bookuser.getPassword());

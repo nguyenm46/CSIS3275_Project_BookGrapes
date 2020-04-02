@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>BOOKGRAPES</title>
+<title>BookGrapes - Book Registration</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>

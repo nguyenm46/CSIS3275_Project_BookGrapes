@@ -26,9 +26,9 @@
 						method="post" modelAttribute="bookuser">
 
 						<div class="form-group">
-							<label for="name" class="col-md-3 control-label">Username</label>
+							<label for="username" class="col-md-3 control-label">Username</label>
 							<div class="col-md-9">
-								<form:input path="name" cssClass="form-control" />
+								<form:input path="username" cssClass="form-control" />
 							</div>
 						</div>
 						<div class="form-group">

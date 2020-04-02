@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>javaguides.net</title>
+<title>BookGrapes</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
@@ -17,7 +17,7 @@
 		<div class="col-md-offset-2 col-md-7">
 		<br/>
 			<h1>Welcome to BookGrapes</h1>
-			<h4>- your online bookshelf</h4>
+			<h4 style="color:gray">- your online bookshelf - </h4>
 			<hr />
 			<br/>
 			<a href="login">Log in</a>

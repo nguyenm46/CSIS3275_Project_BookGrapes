@@ -25,9 +25,10 @@
 				<form:hidden path="name" cssClass="form-control" />
 
 				<table class="table table-striped table-bordered">
-					<c:forEach var="course" items="${courses}">
+					<c:forEach var="course" items="${books}">
 						<tr>
-							<td>${course.code} ${course.name}</td> <td><a href="#" onclick="document.getElementById('code').value='${course.code}';document.getElementById('name').value='${course.name}';document.getElementById('courseRegisterForm').submit();">Register</a></td>
+							<td>${books.code} ${books.name}</td> 
+							<td><a href="#" onclick="document.getElementById('code').value='${books.code}';document.getElementById('name').value='${books.name}';document.getElementById('courseRegisterForm').submit();">Register</a></td>
 						</tr>
 					</c:forEach>
 
