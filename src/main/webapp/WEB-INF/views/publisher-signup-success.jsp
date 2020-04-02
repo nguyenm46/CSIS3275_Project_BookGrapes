@@ -29,7 +29,7 @@
 
 			<!-- <h2>${publisher}</h2> -->
 			<br/>
-			<a href="home2">Back to Homepage</a>
+			<a href="home">Back to Homepage</a>
 		</div>
 	</div>
 </body>

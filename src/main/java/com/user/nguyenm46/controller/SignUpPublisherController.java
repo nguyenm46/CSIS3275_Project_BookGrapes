@@ -38,10 +38,10 @@ public class SignUpPublisherController {
 	public String showFormPub() {
 		return "publisher-signup";
 	}
-	@GetMapping("/home2")
-	public String backHome2() {
-		return "home";
-	}
+//	@GetMapping("/home2")
+//	public String backHome2() {
+//		return "home";
+//	}
 
 	/**
 	 * Save User sign up publisher form

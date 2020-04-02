@@ -35,7 +35,7 @@
 
 			<!-- <h2>${bookuser}</h2> -->
 			<br/>
-			<a href="home1">Back to Homepage</a>
+			<a href="home">Back to Homepage</a>
 		</div>
 	</div>
 </body>

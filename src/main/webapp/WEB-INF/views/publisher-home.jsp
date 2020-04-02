@@ -15,23 +15,26 @@
 <body>
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
-			<h1>${message} ${publisher.name}!</h1>
+			<h1>${message}${publisher.name}!</h1>
 			<hr />
 			<table class="table table-striped table-bordered">
 				<tr>
-					<td><b>Email </b>: ${publisher.email}</td>
+					<td><b>Email </b>: ${user.email}</td>
 				</tr>
 				<tr>
-					<td><b>Name </b> : ${publisher.name}</td>
+					<td><b>Name </b> : ${user.name}</td>
 				</tr>
 			</table>
-			<br/>
-			<a href="showRegisterNewBook">Add a new book</a>
-			<br/> 
-			<a href="showPublishedBooks">Manage published books</a>
-			<br/> 
-			<a href="home2">Back to Homepage</a>
-			<br/> 
+				<br />
+				<a href="showRegisterNewBook">Add a new book</a>
+				<br />
+				<a href="showPublishedBooks">Manage published books</a>
+				<br/> 
+				<a href="home">Back to Homepage</a>
+				<br />
+				<a href="logoutPublisher">Logout</a>
+				<br />
+
 		</div>
 	</div>
 </body>

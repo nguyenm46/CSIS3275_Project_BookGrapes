@@ -9,5 +9,8 @@
 </head>
 <body>
 	<h1>LOG OUT!!</h1>
+	<br />
+	<a href="home">Back to Homepage</a>
+	<br />
 </body>
 </html>

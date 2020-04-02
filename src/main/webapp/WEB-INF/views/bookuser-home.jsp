@@ -19,13 +19,13 @@
 			<hr />
 			<table class="table table-striped table-bordered">
 				<tr>
-					<td><b>Username </b>: ${bookuser.username}</td>
+					<td><b>Username </b>: ${user.username}</td>
 				</tr>
 				<tr>
-					<td><b>Name </b> : ${bookuser.fullname}</td>
+					<td><b>Name </b> : ${user.fullname}</td>
 				</tr>
 				<tr>
-					<td><b>Email </b>: ${bookuser.email}</td>
+					<td><b>Email </b>: ${user.email}</td>
 				</tr>
 			</table>
 			<br/>
@@ -33,7 +33,9 @@
 			<br/> 
 			<a href="showUserBooklists">Manage booklists</a>
 			<br/> 
-			<a href="home1">Back to Homepage</a>
+			<a href="home">Back to Homepage</a>
+			<br/>
+			<a href="logoutUser">Logout</a>
 			<br/>
 		</div>
 	</div>

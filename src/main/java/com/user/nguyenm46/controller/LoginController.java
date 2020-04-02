@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.user.nguyenm46.dao.BookUserDao;
 import com.user.nguyenm46.dao.PublisherDao;
@@ -20,11 +21,11 @@ import com.user.nguyenm46.model.Student;
 //Hsueh-Cheng Liu 300280496 
 
 @Controller
-@SessionAttributes("bookuser")
+@SessionAttributes("user")
 public class LoginController {
 
-	//(required = false)
-	@Autowired 
+	// (required = false)
+	@Autowired
 	BookUserDao bookuserDao;
 	@Autowired
 	PublisherDao publisherDao;
@@ -45,32 +46,47 @@ public class LoginController {
 	 * @return
 	 */
 	@GetMapping("/login")
-	public String login(HttpSession session) {
-		BookUser bookuser = (BookUser) session.getAttribute("bookuser");
-		Publisher publisher =(Publisher) session.getAttribute("publisher");
-		if (bookuser != null) {
-			return "bookuser-home";
+	public String login(HttpSession session, Model model) {
+		System.out.println("GetMappign start");
+
+		if (session.getAttribute("user") != null) {
+			System.out.println("session != null");
+			System.out.println(session.getAttribute("user").getClass().getName());
+			if (session.getAttribute("user").getClass().getName() == "com.user.nguyenm46.model.BookUser") {
+				BookUser bookuser = (BookUser) session.getAttribute("user");
+				model.addAttribute("message", "Welcome back " + bookuser.getUsername());
+				System.out.println("GetMappign not log out, just back to home (bookuser)");
+				return "bookuser-home";
+			} else if (session.getAttribute("user").getClass().getName() == "com.user.nguyenm46.model.Publisher") {
+				Publisher publisher = (Publisher) session.getAttribute("user");
+				model.addAttribute("message", "Welcome back " + publisher.getName());
+				System.out.println("GetMappign not log out, just back to home (publisher)");
+				return "publisher-home";
+			}
 		}
-		else if (publisher != null) {
-			return "publisher-home";
-		}
+		System.out.println("GetMappign end");
 		return "login";
 	}
 
 	@PostMapping("/login")
 	public String login(@ModelAttribute("loginInfo") LoginInfo loginInfo, Model model) {
-
+		System.out.println("PostMappign start");
 		BookUser bookuser = bookuserDao.findByEmail(loginInfo.getEmail());
 		Publisher publisher = publisherDao.findByEmail(loginInfo.getEmail());
+		if (publisher != null) {
+			System.out.println(publisher.getEmail());
+			System.out.println(publisher.getPassword());
+		}
+		System.out.println(loginInfo.getEmail());
+		System.out.println(loginInfo.getPassword());
 		model.addAttribute("message", "Login Fail");
-
+		System.out.println("PostMappign end");
 		if (bookuser != null && bookuser.getPassword().equals(loginInfo.getPassword())) {
-			model.addAttribute("bookuser", bookuser);
+			model.addAttribute("user", bookuser);
 			model.addAttribute("message", "Welcome back");
 			return "bookuser-home";
-		}
-		else if (publisher != null && publisher.getPassword().equals(loginInfo.getPassword())) {
-			model.addAttribute("publisher", publisher);
+		} else if (publisher != null && publisher.getPassword().equals(loginInfo.getPassword())) {
+			model.addAttribute("user", publisher);
 			model.addAttribute("message", "Welcome back");
 			return "publisher-home";
 		}
@@ -79,25 +95,40 @@ public class LoginController {
 	}
 
 	/**
-	 * log out method
+	 * log out user method
 	 * 
 	 * @return
 	 */
-	@GetMapping("/logout")
-	public String logout(HttpSession session) {
-		Publisher publisher =(Publisher) session.getAttribute("publisher");
-		BookUser student = (BookUser) session.getAttribute("bookuser");
-		if (student != null) {
-			session.removeAttribute("bookuser");
+	@GetMapping("/logoutUser")
+	public String logoutUser(HttpSession session, SessionStatus sessionStatus) {
+
+		if (session.getAttribute("user") != null) {
+			session.removeAttribute("user");
+			session.invalidate();
+			sessionStatus.setComplete();
 			return "logout";
 			// go to log out page
 		}
-		else if (publisher != null) {
-			session.removeAttribute("publisher");
+
+		return "home";
+	}
+
+	/**
+	 * log out publisher method
+	 * 
+	 * @return
+	 */
+	@GetMapping("/logoutPublisher")
+	public String logoutPublisher(HttpSession session, SessionStatus sessionStatus) {
+		
+		if (session.getAttribute("user") != null) {
+			session.removeAttribute("user");
+			session.invalidate();
+			sessionStatus.setComplete();
 			return "logout";
 			// go to log out page
 		}
-		return "login";
+		return "home";
 	}
 
 }

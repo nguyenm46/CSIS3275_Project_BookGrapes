@@ -45,10 +45,10 @@ public class SignUpBookuserController {
 		return "bookuser-signup";
 	}
 	
-	@GetMapping("/home1")
-	public String backHome() {
-		return "home";
-	}
+//	@GetMapping("/home1")
+//	public String backHome() {
+//		return "home";
+//	}
 
 
 	/**
