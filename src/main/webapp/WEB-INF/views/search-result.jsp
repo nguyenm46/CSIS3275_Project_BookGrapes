@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>javaguides.net</title>
+<title>BookGrapes - Search</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
@@ -14,26 +14,26 @@
 <%@ page isELIgnored="false"%>
 </head>
 <body>
-	<!--  <div class="container">
+	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
-			<h1>Course List</h1>
+			<h1>Search result</h1>
 			${message}
 			<hr />
-			<form:form action="registerCourse" cssClass="form-horizontal"
-				method="post" modelAttribute="course" id="courseRegisterForm">
+			<form:form action="addToBooklist" cssClass="form-horizontal"
+				method="post" modelAttribute="book" id="bookSearchResult">
 				<form:hidden path="code" cssClass="form-control" />
-				<form:hidden path="name" cssClass="form-control" />
+				<form:hidden path="booktitle" cssClass="form-control" />
 
 				<table class="table table-striped table-bordered">
-					<c:forEach var="course" items="${courses}">
+					<c:forEach var="books" items="${books}">
 						<tr>
-							<td>${course.code} ${course.name}</td> <td><a href="#" onclick="document.getElementById('code').value='${course.code}';document.getElementById('name').value='${course.name}';document.getElementById('courseRegisterForm').submit();">Register</a></td>
+							<td>${books.code} ${books.booktitle}</td> <td><a href="#" onclick="document.getElementById('code').value='${books.code}';document.getElementById('booktitle').value='${books.booktitle}';document.getElementById('bookSearchResult').submit();">Add to your booklist</a></td>
 						</tr>
 					</c:forEach>
 
 				</table>
 			</form:form>
 		</div>
-	</div>  -->
+	</div>
 </body>
 </html>

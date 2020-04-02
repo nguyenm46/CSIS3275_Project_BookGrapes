@@ -51,7 +51,7 @@ public class PublisherDaoImpl implements PublisherDao {
 		params.put("email", email);
 		params.put("code", code);
 
-		String sql = "INSERT INTO publishedbooklist VALUES(:email, :code)";
+		String sql = "INSERT INTO published_booklists VALUES(:email, :code)";
 		return namedParameterJdbcTemplate.update(sql, params);
 	}
 
@@ -59,7 +59,7 @@ public class PublisherDaoImpl implements PublisherDao {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("email", email);
 
-		String sql = "SELECT * FROM publishedbooklist r, books b WHERE r.email=:email AND r.code=b.code;";
+		String sql = "SELECT * FROM published_booklists r, books b WHERE r.email=:email AND r.code=b.code;";
 
 		List<Book> bookResults = namedParameterJdbcTemplate.query(sql, params, new BookMapper());
 
@@ -82,7 +82,7 @@ public class PublisherDaoImpl implements PublisherDao {
 		public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Book book = new Book();
 			book.setCode(rs.getString("code"));
-			book.setBooktitle(rs.getString("name"));
+			book.setBooktitle(rs.getString("title"));
 			return book;
 		}
 	}

@@ -14,7 +14,7 @@ CREATE TABLE bookusers (
 
 CREATE TABLE books (
   code VARCHAR (50) PRIMARY KEY,
-  title  VARCHAR (50),
+  booktitle  VARCHAR (50),
   author  VARCHAR (50),
   publishedyear VARCHAR (30)
 );

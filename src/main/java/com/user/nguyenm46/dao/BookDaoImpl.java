@@ -53,7 +53,7 @@ public class BookDaoImpl implements BookDao {
 			Book book = new Book();
 //			user.setId(rs.getInt("id"));
 			book.setCode(rs.getString("code"));
-			book.setBooktitle(rs.getString("title"));
+			book.setBooktitle(rs.getString("booktitle"));
 			return book;
 		}
 	}
