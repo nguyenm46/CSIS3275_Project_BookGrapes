@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>javaguides.net</title>
+<title>BookGrapes - Booklist</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
@@ -25,7 +25,6 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<!-- <a href="home3">Show All Courses</a> -->
 		</div>
 	</div>
 </body>

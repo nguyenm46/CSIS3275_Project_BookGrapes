@@ -8,7 +8,8 @@ import com.user.nguyenm46.model.Book;
 
 public interface BookDao {
 
-	Book findByCode(String booktitle);
+	Book findByCode(String code);
+	Book findByTitle(String booktitle);
 	
 	List<Book> findAll();
 	

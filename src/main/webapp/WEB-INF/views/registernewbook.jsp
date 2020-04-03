@@ -19,7 +19,7 @@
 			<h2 class="text-center">Register new book</h2>
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<div class="panel-title">Register new book</div>
+					<div class="panel-title"> </div>
 				</div>
 				<div class="panel-body">
 					<form:form action="saveRegisterNewBook" cssClass="form-horizontal"

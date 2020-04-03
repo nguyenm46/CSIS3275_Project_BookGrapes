@@ -35,6 +35,17 @@ public class BookDaoImpl implements BookDao {
 
 		return result;
 	}
+	
+	public Book findByTitle(String booktitle) {
+
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("booktitle", booktitle);
+
+		String sql = "SELECT * FROM books WHERE booktitle=:booktitle";
+		Book result = namedParameterJdbcTemplate.queryForObject(sql, params, new BookMapper());
+
+		return result;
+	}
 
 	public List<Book> findAll() {
 
@@ -53,7 +64,9 @@ public class BookDaoImpl implements BookDao {
 			Book book = new Book();
 //			user.setId(rs.getInt("id"));
 			book.setCode(rs.getString("code"));
-			book.setBooktitle(rs.getString("title"));
+			book.setBooktitle(rs.getString("booktitle"));
+			book.setAuthor(rs.getString("author"));
+			book.setPublishedyear(rs.getString("publishedyear"));
 			return book;
 		}
 	}

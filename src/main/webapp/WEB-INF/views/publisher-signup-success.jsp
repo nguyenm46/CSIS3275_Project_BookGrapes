@@ -26,7 +26,6 @@
 					<td><b>Email </b>: ${publisher.email}</td>
 				</tr>
 			</table>
-
 			<!-- <h2>${publisher}</h2> -->
 			<br/>
 			<a href="home">Back to Homepage</a>
