@@ -7,12 +7,14 @@
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/controller/SignUpBookuserController.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/model/BookUser.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/config/db/H2DataSource.java
+/Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/controller/SearchBookController.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/config/RootConfig.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/model/Book.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/dao/BookDao.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/controller/LoginController.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/dao/BookUserDao.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/config/AppConfig.java
+/Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/model/BookInfo.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/dao/PublisherDao.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/model/LoginInfo.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/config/SpringMvcDispatcherServletInitializer.java
