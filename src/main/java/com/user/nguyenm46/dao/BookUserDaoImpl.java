@@ -86,7 +86,7 @@ public class BookUserDaoImpl implements BookUserDao {
 		public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Book book = new Book();
 			book.setCode(rs.getString("code"));
-			book.setBooktitle(rs.getString("name"));
+			book.setBooktitle(rs.getString("booktitle"));
 			return book;
 		}
 	}

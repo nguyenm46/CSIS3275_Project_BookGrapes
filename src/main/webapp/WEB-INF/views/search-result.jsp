@@ -18,7 +18,7 @@
 		<div class="col-md-offset-2 col-md-7">
 			<h1>Search Result</h1>
 			<hr />
-			<table class="table table-striped table-bordered">
+			<table id="bookResult" method="post" modelAttribute ="book" class="table table-striped table-bordered">
 				<tr>
 					<td><b>Booktitle</b>: ${book.booktitle}</td>
 				</tr>
@@ -32,7 +32,8 @@
 					<td><b>Published Year </b> : ${book.publishedyear}</td>
 				</tr>
 			</table>
-			<a href="addToBooklist">Add to your booklist</a>
+			<a href="addToBooklist" href="#" onclick="document.getElementById('code').value='${book.code}';
+				document.getElementById('bookResult').submit();">Add to your booklist</a>
 			<br/>
 			<a href="writeReview">Write a review</a>
 		</div>

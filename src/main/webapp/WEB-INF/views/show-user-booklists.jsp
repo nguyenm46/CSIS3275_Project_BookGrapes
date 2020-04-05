@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -18,10 +19,10 @@
 		<div class="col-md-offset-2 col-md-7">
 			<h1>Your Booklist</h1>
 			<hr />
-			<table class="table table-striped table-bordered">
-				<c:forEach var="books" items="${bookuser.booklist}">
+			<table  modelAttribute="showbooks" class="table table-striped table-bordered">
+				<c:forEach var="book" items="${books}">
 					<tr>
-						<td>${books.code} ${books.booktitle}</td>
+						<td>${book.code} ${book.booktitle}</td>
 					</tr>
 				</c:forEach>
 			</table>

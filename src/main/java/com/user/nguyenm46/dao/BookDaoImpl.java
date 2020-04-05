@@ -81,5 +81,7 @@ public class BookDaoImpl implements BookDao {
 		boolean result = namedParameterJdbcTemplate.update(sql, params) == 1;
 		return result;
 	}
+	
+	//"update table set namme1=value 1, name2=value2, where ---"
 
 }

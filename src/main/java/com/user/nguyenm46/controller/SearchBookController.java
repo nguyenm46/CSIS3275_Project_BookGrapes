@@ -70,25 +70,25 @@ public class SearchBookController {
 	    	return "search-result";
 	    }
 	    return "login";
-	}
+	}*/
 	
 	@PostMapping("/addToBooklist")
-	public String register(HttpSession session, @ModelAttribute("searchbook") Book book, Model model) {
+	public String addToList(HttpSession session, @ModelAttribute("book") Book book, Model model) {
 		BookUser bookuser = (BookUser) session.getAttribute("bookuser");
 		String code = book.getCode();
 		
 		for(Book c : bookuser.getBooklist()) {
 			if(c.getCode().equals(code)) {
-				model.addAttribute("message", "Book added to your booklist!");
-				return "redirect:searchResult";
+				model.addAttribute("message", "Book is already in your booklist!");
+				return "redirect:bookuser-home";
 			}
 		}
 		
-		if(bookuserDao.registerBookByBookCode(bookuser.getEmail(), code) > 0) {
+		/*if(BookUserDao.registerBookByBookCode(bookuser.getEmail(), code) > 0) {
 			bookuser.setBooklist(bookuserDao.findRegisteredBooks(bookuser.getEmail()));
-		}
+		}*/
 		
 		return "redirect:login";
-	}*/
+	}
 	
 }

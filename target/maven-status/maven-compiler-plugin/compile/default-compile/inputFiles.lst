@@ -4,7 +4,9 @@
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/model/Publisher.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/dao/PublisherDaoImpl.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/controller/RegisterNewBookController.java
+/Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/controller/ShowUserBooklistController.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/controller/SignUpBookuserController.java
+/Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/controller/ManagePublishedBooksController.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/model/BookUser.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/config/db/H2DataSource.java
 /Users/khue/git/CSIS3275_Project_BookGrapes/src/main/java/com/user/nguyenm46/controller/SearchBookController.java

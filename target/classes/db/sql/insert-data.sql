@@ -8,3 +8,6 @@ INSERT INTO books VALUES('1','test book 2','P.O','2020');
 INSERT INTO publishers VALUES('admin@gmail.com','admin','123456');
 INSERT INTO publishers VALUES('fred@publisher.com','fred publisher','123456');
 INSERT INTO publishers VALUES('khue@publisher.com','khue publisher','123456');
+
+INSERT INTO user_booklists VALUES('test@gmail.com','0');
+
