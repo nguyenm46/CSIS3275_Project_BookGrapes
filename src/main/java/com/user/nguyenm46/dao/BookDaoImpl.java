@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.user.nguyenm46.model.Book;
+import com.user.nguyenm46.model.BookList;
 
 //Hsueh-Cheng Liu 300280496 
 
@@ -23,6 +24,14 @@ public class BookDaoImpl implements BookDao {
 	@Autowired
 	public void setNamedParameterJdbcTemplate(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
 		this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+	}
+
+	public List<Book> checkBooklist(String email) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("email", email);
+		String sql = "SELECT * FROM user_booklists r, books b WHERE r.email=:email AND r.code=b.code;";
+		List<Book> result = namedParameterJdbcTemplate.query(sql, params, new BookMapper());
+		return result;
 	}
 
 	public Book findByCode(String code) {
@@ -79,6 +88,16 @@ public class BookDaoImpl implements BookDao {
 			return book;
 		}
 	}
+	
+//	private static final class BookListMapper implements RowMapper<BookList> {
+//
+//		public BookList mapRow(ResultSet rs, int rowNum) throws SQLException {
+//			BookList bl = new BookList();
+//			bl.setCode(rs.getString("code"));
+//			bl.setEmail(rs.getString("email"));
+//			return bl;
+//		}
+//	}
 
 	private static final class ReviewMapper implements RowMapper<String> {
 
@@ -128,5 +147,7 @@ public class BookDaoImpl implements BookDao {
 		boolean result = namedParameterJdbcTemplate.update(sql, params) == 1;
 		return result;
 	}
+	
+	
 
 }

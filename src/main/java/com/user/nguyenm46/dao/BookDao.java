@@ -3,6 +3,7 @@ package com.user.nguyenm46.dao;
 import java.util.List;
 
 import com.user.nguyenm46.model.Book;
+import com.user.nguyenm46.model.BookList;
 
 //Hsueh-Cheng Liu 300280496 
 
@@ -21,4 +22,6 @@ public interface BookDao {
 	boolean addBookReview(String code, String email, String review);
 
 	List<String> searchUserReview(String code);
+	
+	List<Book> checkBooklist(String email);
 }

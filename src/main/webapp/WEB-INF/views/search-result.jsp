@@ -20,6 +20,7 @@
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
 			<h1>Search Result</h1>
+			<h1>${message}</h1>
 			<hr />
 			<table id="bookResult" method="post" modelAttribute="book"
 				class="table table-striped table-bordered">
@@ -36,10 +37,13 @@
 					<td><b>Published Year </b> : ${book.publishedyear}</td>
 				</tr>
 			</table>
-			<a href="addToBooklist?bookcode=${book.code}">Add to your
-				booklist</a> <br /> <a href="addReview?booktitle=${book.booktitle}">Write
-				a review</a> <br /> <a href="readReview?bookcode=${book.code}">Read
-				user review</a> <br /> <a href="userhome">Back to Homepage</a>
+				<a href="addToBooklist?bookcode=${book.code}">Add to your booklist</a> 
+				<br /> 
+				<a href="addReview?booktitle=${book.booktitle}">Write a review</a> 
+				<br /> 
+				<a href="readReview?bookcode=${book.code}">Read	user review</a> 
+				<br /> 
+				<a href="userhome">Back to Homepage</a>
 		</div>
 	</div>
 </body>

@@ -17,6 +17,7 @@ import com.user.nguyenm46.dao.BookDao;
 import com.user.nguyenm46.dao.BookUserDao;
 import com.user.nguyenm46.model.Book;
 import com.user.nguyenm46.model.BookInfo;
+import com.user.nguyenm46.model.BookList;
 import com.user.nguyenm46.model.BookUser;
 import com.user.nguyenm46.model.LoginInfo;
 import com.user.nguyenm46.model.Publisher;
@@ -53,7 +54,7 @@ public class SearchBookController {
 	@PostMapping("/searchBook")
 	public String login(@ModelAttribute("bookInfo") BookInfo bookInfo, Model model) {
 		Book book = bookDao.findByTitle(bookInfo.getBooktitle());
-		model.addAttribute("message", " - Book not found");
+		
 
 		if (book != null) {
 			model.addAttribute("book", book);
@@ -61,7 +62,7 @@ public class SearchBookController {
 			System.out.println(book.getPublishedyear());
 			return "search-result";
 		}
-
+		model.addAttribute("message", " - Book not found");
 		return "search-book";
 	}
 
@@ -70,14 +71,14 @@ public class SearchBookController {
 			HttpServletRequest request) {
 		BookUser bookuser = (BookUser) session.getAttribute("user");
 		String code = request.getParameter("bookcode");
-
-		for (Book c : bookuser.getBooklist()) {
-			if (c.getCode().equals(code)) {
+		List<Book> books = bookDao.checkBooklist(bookuser.getEmail());
+		for (int i = 0; i < books.size(); i++) {
+			System.out.println(books.get(i).getCode());
+			if (books.get(i).getCode().equals(code)) {
 				model.addAttribute("message", "Book is already in your booklist!");
-				return "redirect:bookuser-home";
+				return "search-result";
 			}
 		}
-
 		boolean result = bookuserDao.registerBookByBookCode(bookuser.getEmail(), code);
 		model.addAttribute("msg", "Welcome back " + bookuser.getUsername());
 		if (result)
