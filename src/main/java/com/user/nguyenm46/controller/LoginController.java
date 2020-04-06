@@ -51,12 +51,12 @@ public class LoginController {
 			System.out.println(session.getAttribute("user").getClass().getName());
 			if (session.getAttribute("user").getClass().getName() == "com.user.nguyenm46.model.BookUser") {
 				BookUser bookuser = (BookUser) session.getAttribute("user");
-				model.addAttribute("message", "Welcome back " + bookuser.getUsername());
+				model.addAttribute("msg", "Welcome back " + bookuser.getUsername());
 				System.out.println("GetMappign not log out, just back to home (bookuser)");
 				return "bookuser-home";
 			} else if (session.getAttribute("user").getClass().getName() == "com.user.nguyenm46.model.Publisher") {
 				Publisher publisher = (Publisher) session.getAttribute("user");
-				model.addAttribute("message", "Welcome back " + publisher.getName());
+				model.addAttribute("msg", "Welcome back " + publisher.getName());
 				System.out.println("GetMappign not log out, just back to home (publisher)");
 				return "publisher-home";
 			}
