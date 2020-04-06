@@ -75,7 +75,7 @@ public class SearchBookController {
 		for (int i = 0; i < books.size(); i++) {
 			System.out.println(books.get(i).getCode());
 			if (books.get(i).getCode().equals(code)) {
-				model.addAttribute("message", "Book is already in your booklist!");
+				model.addAttribute("message", books.get(i).getBooktitle() +" is already in your booklist!");
 				return "search-result";
 			}
 		}
