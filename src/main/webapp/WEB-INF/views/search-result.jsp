@@ -25,10 +25,10 @@
 			<table id="bookResult" method="post" modelAttribute="book"
 				class="table table-striped table-bordered">
 				<tr>
-					<td><b>Booktitle</b>: ${book.booktitle}</td>
+					<td><b>BookID </b> : ${book.code}</td>
 				</tr>
 				<tr>
-					<td><b>Code </b> : ${book.code}</td>
+					<td><b>Booktitle</b>: ${book.booktitle}</td>
 				</tr>
 				<tr>
 					<td><b>Author </b> : ${book.author}</td>
@@ -37,13 +37,10 @@
 					<td><b>Published Year </b> : ${book.publishedyear}</td>
 				</tr>
 			</table>
-				<a href="addToBooklist?bookcode=${book.code}">Add to your booklist</a> 
-				<br /> 
-				<a href="addReview?booktitle=${book.booktitle}">Write a review</a> 
-				<br /> 
-				<a href="readReview?bookcode=${book.code}">Read	user review</a> 
-				<br /> 
-				<a href="userhome">Back to Homepage</a>
+			<a href="addToBooklist?bookcode=${book.code}">Add to your
+				booklist</a> <br /> <a href="addReview?booktitle=${book.booktitle}">Write
+				a review</a> <br /> <a href="readReview?bookcode=${book.code}">Read
+				user review</a> <br /> <a href="userhome">Back to Homepage</a>
 		</div>
 	</div>
 </body>

@@ -25,7 +25,7 @@
 			<table  modelAttribute="showbooks" class="table table-striped table-bordered">
 				<c:forEach var="review" items="${reviews}">
 					<tr>
-						<td>BooK review: ${review} </td>
+						<td>${review} </td>
 					</tr>
 				</c:forEach>
 			</table>
