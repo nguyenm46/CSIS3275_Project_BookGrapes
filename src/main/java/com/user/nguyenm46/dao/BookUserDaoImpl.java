@@ -92,17 +92,15 @@ public class BookUserDaoImpl implements BookUserDao {
 	}
 
 	public boolean addBookUser(BookUser bookUser) {
-		String sql = "insert into bookusers values('" + bookUser.getEmail() + "','"
-				+ bookUser.getUsername() + "','" + bookUser.getFullname() + "','" + bookUser.getDob() + "','"
-				+ bookUser.getPassword() + "')";
+		String sql = "insert into bookusers values('" + bookUser.getEmail() + "','" + bookUser.getUsername() + "','"
+				+ bookUser.getFullname() + "','" + bookUser.getDob() + "','" + bookUser.getPassword() + "')";
 		Map<String, Object> params = new HashMap<String, Object>();
 		boolean result = namedParameterJdbcTemplate.update(sql, params) == 1;
 		return result;
 	}
-	
 
 	public boolean registerBookByBookCode(String email, String code) {
-		
+
 		String sql = "INSERT INTO user_booklists VALUES(:email, :code)";
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("email", email);

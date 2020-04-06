@@ -9,15 +9,16 @@ import com.user.nguyenm46.model.Book;
 public interface BookDao {
 
 	Book findByCode(String code);
+
 	Book findByTitle(String booktitle);
-	
+
 	List<Book> findAll();
-	
+
 	boolean addBook(Book book, String size);
-	
+
 	boolean editbook(Book book);
-	
+
 	boolean addBookReview(String code, String email, String review);
-	
+
 	List<String> searchUserReview(String code);
 }

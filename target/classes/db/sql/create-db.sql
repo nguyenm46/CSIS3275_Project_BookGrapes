@@ -1,3 +1,6 @@
+--Hsueh-Cheng Liu 300280496 
+--Khue Nguyen 300300461
+
 DROP TABLE user_booklists IF EXISTS;
 DROP TABLE bookReviews IF EXISTS;
 DROP TABLE bookusers IF EXISTS;

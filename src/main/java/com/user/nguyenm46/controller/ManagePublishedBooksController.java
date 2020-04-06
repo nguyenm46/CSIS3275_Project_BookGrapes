@@ -19,19 +19,19 @@ import com.user.nguyenm46.dao.PublisherDao;
 import com.user.nguyenm46.model.Book;
 import com.user.nguyenm46.model.BookUser;
 import com.user.nguyenm46.model.Publisher;
+//Hsueh-Cheng Liu 300280496 
 
 @Controller
 @SessionAttributes("user")
 public class ManagePublishedBooksController {
-	
-	@Autowired 
+
+	@Autowired
 	BookDao bookDao;
 	@Autowired
 	PublisherDao publisherDao;
 
-
 	/**
-	 * Create edit book
+	 * Create show published book
 	 * 
 	 * @return
 	 */
@@ -39,6 +39,7 @@ public class ManagePublishedBooksController {
 	public Book registerForm() {
 		return new Book();
 	}
+
 	/**
 	 * Create edit book
 	 * 
@@ -56,21 +57,12 @@ public class ManagePublishedBooksController {
 	 */
 	@GetMapping("/showPublishedBooks")
 	public String showCourses(HttpSession session, Model model) {
-		System.out.println("GET=Published books start---------------------------");
-		Publisher publisher = (Publisher) session.getAttribute("user");		
-		System.out.println(publisher.getEmail());
-		
-	    if(publisher != null) {	    	
-	    	List<Book> books = publisherDao.findPublishedBooks(publisher.getEmail());
-	    	for(int i =0;i<books.size();i++) {
-	    		System.out.println(books.get(i).getBooktitle());
-	    	}
-	    	System.out.println("GET=Published books end---------------------------");
-	    	model.addAttribute("books", books);
-	    	
-	    	return "show-published-books";
-	    }
-
+		Publisher publisher = (Publisher) session.getAttribute("user");
+		if (publisher != null) {
+			List<Book> books = publisherDao.findPublishedBooks(publisher.getEmail());
+			model.addAttribute("books", books);
+			return "show-published-books";
+		}
 		return "show-published-books";
 	}
 
@@ -81,33 +73,24 @@ public class ManagePublishedBooksController {
 	 */
 	@GetMapping("/edit-book")
 	public String showCourses(Model model, HttpServletRequest request) {
-		
-		System.out.println("edit-book GET=Published books start---------------------------");
 		String bookcode = request.getParameter("bookcode");
 		model.addAttribute("bookcode", bookcode);
-		System.out.println(bookcode);
-		System.out.println("edit-book GET=Published books end---------------------------");
 		return "edit-book";
 	}
-	
-	@PostMapping("/editBook")
-	public String editbook(@ModelAttribute("ebook") Book book, Model model,HttpSession session) {
-		System.out.println("edit-book POST=Published books start---------------------------");
-		Publisher publisher = (Publisher) session.getAttribute("user");
-		
-		String code = book.getCode();
-		System.out.println(code);
 
+	@PostMapping("/editBook")
+	public String editbook(@ModelAttribute("ebook") Book book, Model model, HttpSession session) {
+		Publisher publisher = (Publisher) session.getAttribute("user");
+		String code = book.getCode();
 		boolean result = bookDao.editbook(book);
 		model.addAttribute("msg", "Welcome back " + publisher.getName());
 		if (result)
 			model.addAttribute("message", "<script>alert('Successed edit book info!')</script>");
 		else
 			model.addAttribute("message", "<script>alert('Not uccessed edit book info!')</script>");
-		System.out.println("edit-book POST=Published books end---------------------------");
 		return "publisher-home";
 	}
-	
+
 	@RequestMapping("/publisherhome")
 	public String handlerHome(HttpSession session, Model model) {
 		Publisher publisher = (Publisher) session.getAttribute("user");

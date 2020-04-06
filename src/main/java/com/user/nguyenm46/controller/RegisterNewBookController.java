@@ -17,11 +17,12 @@ import com.user.nguyenm46.dao.PublisherDao;
 import com.user.nguyenm46.model.Book;
 //Hsueh-Cheng Liu 300280496 
 import com.user.nguyenm46.model.Publisher;
+//Hsueh-Cheng Liu 300280496 
 
 @Controller
 @SessionAttributes("bookuser")
 public class RegisterNewBookController {
-	
+
 	@Autowired
 	BookDao bookDao;
 	@Autowired
@@ -56,30 +57,14 @@ public class RegisterNewBookController {
 	 */
 	@PostMapping("/saveRegisterNewBook")
 	public String saveBook(@ModelAttribute("newbook") Book book, Model model, HttpSession session) {
-
-		// Implement business logic to save user details into a database
-		// .....
-
-		System.out.println("Booktitle : " + book.getBooktitle());
-		System.out.println("Author : " + book.getAuthor());
-		System.out.println("Publishedyear : " + book.getPublishedyear());
-
 		List<Book> books = bookDao.findAll();
-
-		System.out.println(books);
-
 		model.addAttribute("books", books);
 
-//		model.addAttribute("message", "User SignUp successfully.");
-//		model.addAttribute("user", user);
-
-		// insert info to sql
-		
-		boolean result = bookDao.addBook(book,String.valueOf(books.size()));
+		boolean result = bookDao.addBook(book, String.valueOf(books.size()));
 		Publisher publisher = (Publisher) session.getAttribute("user");
-		publisherDao.publishedBookByBookCode(publisher.getEmail(),String.valueOf(books.size()));
+		publisherDao.publishedBookByBookCode(publisher.getEmail(), String.valueOf(books.size()));
 		model.addAttribute("msg", "Welcome back " + publisher.getName());
-		
+
 		if (result)
 			model.addAttribute("message", "<script>alert('Successed add new book!')</script>");
 		else
@@ -87,6 +72,5 @@ public class RegisterNewBookController {
 
 		return "publisher-home";
 	}
-	
 
 }

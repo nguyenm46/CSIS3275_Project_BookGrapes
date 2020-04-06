@@ -12,7 +12,7 @@ import com.user.nguyenm46.model.Message;
 
 @Controller
 public class HomeController {
-	
+
 	@RequestMapping("/home")
 	public String handlerHome(Model model) {
 		return "home";

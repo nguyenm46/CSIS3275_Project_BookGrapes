@@ -12,13 +12,17 @@
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 <%@ page isELIgnored="false"%>
+
+<!-- Hsueh-Cheng Liu 300280496, Khue Nguyen 300300461 -->
+
 </head>
 <body>
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
 			<h1>Search Result</h1>
 			<hr />
-			<table id="bookResult" method="post" modelAttribute ="book" class="table table-striped table-bordered">
+			<table id="bookResult" method="post" modelAttribute="book"
+				class="table table-striped table-bordered">
 				<tr>
 					<td><b>Booktitle</b>: ${book.booktitle}</td>
 				</tr>
@@ -32,13 +36,10 @@
 					<td><b>Published Year </b> : ${book.publishedyear}</td>
 				</tr>
 			</table>
-			<a href="addToBooklist?bookcode=${book.code}">Add to your booklist</a>
-			<br/>
-			<a href="addReview?booktitle=${book.booktitle}">Write a review</a>
-			<br/>
-			<a href="readReview?bookcode=${book.code}">Read user review</a>
-			<br/>
-			<a href="userhome">Back to Homepage</a>
+			<a href="addToBooklist?bookcode=${book.code}">Add to your
+				booklist</a> <br /> <a href="addReview?booktitle=${book.booktitle}">Write
+				a review</a> <br /> <a href="readReview?bookcode=${book.code}">Read
+				user review</a> <br /> <a href="userhome">Back to Homepage</a>
 		</div>
 	</div>
 </body>

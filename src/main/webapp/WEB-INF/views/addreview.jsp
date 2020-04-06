@@ -13,6 +13,8 @@
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 
+<!-- Hsueh-Cheng Liu 300280496 -->
+
 </head>
 <body>
 	<div class="container">
@@ -33,8 +35,8 @@
 								<form:input path="review" cssClass="form-control" />
 							</div>
 							<label for="booktitle" class="col-md-3 control-label">
-									Book title</label>
-							<div class="col-md-9">								
+								Book title</label>
+							<div class="col-md-9">
 								<form:input path="booktitle" value="${booktitle}"
 									cssClass="form-control" />
 							</div>

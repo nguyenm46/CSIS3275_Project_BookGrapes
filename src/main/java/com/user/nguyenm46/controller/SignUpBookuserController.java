@@ -16,15 +16,11 @@ import com.user.nguyenm46.model.BookUser;
 @Controller
 public class SignUpBookuserController {
 
-//	@Autowired
-//	UserDao userDao;
 	@Autowired
 	BookUserDao bookuserDao;
-	
 
-	
 	/**
-	 * Create new signUpForm object for empty from
+	 * Create new signUpForm bookuser object for empty from
 	 * 
 	 * @return
 	 */
@@ -32,8 +28,6 @@ public class SignUpBookuserController {
 	public BookUser setSignUpForm() {
 		return new BookUser();
 	}
-	
-
 
 	/**
 	 * Method to show the initial HTML form
@@ -44,12 +38,6 @@ public class SignUpBookuserController {
 	public String showForm() {
 		return "bookuser-signup";
 	}
-	
-//	@GetMapping("/home1")
-//	public String backHome() {
-//		return "home";
-//	}
-
 
 	/**
 	 * Save User sign up form
@@ -60,36 +48,13 @@ public class SignUpBookuserController {
 	 */
 	@PostMapping("/saveSignUpForm")
 	public String saveUser(@ModelAttribute("bookuser") BookUser bookuser, Model model) {
-
-		// Implement business logic to save user details into a database
-		// .....
-
-		System.out.println("Username : " + bookuser.getUsername());
-		System.out.println("FullName : " + bookuser.getFullname());
-		System.out.println("DOB : " + bookuser.getDob());
-		System.out.println("Password : " + bookuser.getPassword());
-		System.out.println("Email : " + bookuser.getEmail());
-		
-		List<BookUser> bookusers = bookuserDao.findAll();
-
-		System.out.println(bookusers);
-
-		//model.addAttribute("bookusers", bookusers);
-				
-//		model.addAttribute("message", "User SignUp successfully.");
-//		model.addAttribute("user", user);
-
-		//insert info to sql
-		//INSERT INTO bookusers VALUES('test@gmail.com', 'admin', 'test admin','1986-10-26', '123456');
 		boolean result = bookuserDao.addBookUser(bookuser);
-		  if (result)
-		    model.addAttribute("message", "<script>alert('You have successfully signed up!')</script>");
-		  else
-		    model.addAttribute("message", "<script>alert('You have successfully signed up!!')</script>");
-		  
+		if (result)
+			model.addAttribute("message", "<script>alert('You have successfully signed up!')</script>");
+		else
+			model.addAttribute("message", "<script>alert('You have successfully signed up!!')</script>");
+
 		return "bookuser-signup-success";
 	}
-	
-	
 
 }

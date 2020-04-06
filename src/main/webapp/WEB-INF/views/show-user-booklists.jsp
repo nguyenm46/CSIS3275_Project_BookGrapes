@@ -12,9 +12,11 @@
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 <%@ page isELIgnored="false"%>
+
+<!-- Hsueh-Cheng Liu 300280496, Khue Nguyen 300300461 -->
+
 </head>
 <body>
-
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
 			<h1>Your Booklist</h1>

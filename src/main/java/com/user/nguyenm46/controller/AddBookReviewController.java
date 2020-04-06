@@ -36,7 +36,7 @@ public class AddBookReviewController {
 	BookUserDao bookuserDao;
 
 	/**
-	 * Create new setRegisterNewBookForm object for empty from
+	 * Create new review object for empty from
 	 * 
 	 * @return
 	 */
@@ -51,10 +51,9 @@ public class AddBookReviewController {
 	 * @return
 	 */
 	@GetMapping("/addReview")
-	public String showWriteReview(Model model,HttpServletRequest request) {
+	public String showWriteReview(Model model, HttpServletRequest request) {
 		String booktitle = request.getParameter("booktitle");
-		model.addAttribute("booktitle",booktitle);
-//		model.addAttribute(attributeValue)
+		model.addAttribute("booktitle", booktitle);
 		System.out.println(booktitle);
 		return "addreview";
 	}
@@ -69,23 +68,8 @@ public class AddBookReviewController {
 	@PostMapping("/addReview")
 	public String saveBook(@ModelAttribute("newReview") ReviewInfo reviewInfo, Model model, HttpSession session,
 			HttpServletRequest request) {
-//		String code = request.getParameter("bookcode");
+
 		String booktitle = reviewInfo.getBooktitle();
-		System.out.println(booktitle);
-		// Implement business logic to save user details into a database
-		// .....
-
-		System.out.println("BookReview : " + reviewInfo.getReview());
-		System.out.println("BookCode : " + reviewInfo.getBooktitle());
-
-//		List<Book> books = bookDao.findAll();
-//
-//		System.out.println(books);
-//
-//		model.addAttribute("review", books);
-
-//		model.addAttribute("message", "User SignUp successfully.");
-//		model.addAttribute("user", user);
 
 		// insert info to sql
 		BookUser bookuser = (BookUser) session.getAttribute("user");
@@ -99,18 +83,17 @@ public class AddBookReviewController {
 
 		return "bookuser-home";
 	}
-	
-	
+
 	/**
 	 * Method to show the initial HTML form
 	 * 
 	 * @return
 	 */
 	@GetMapping("/readReview")
-	public String showReadReview(Model model,HttpServletRequest request) {
+	public String showReadReview(Model model, HttpServletRequest request) {
 		String bookcode = request.getParameter("bookcode");
 		List<String> reviews = bookDao.searchUserReview(bookcode);
-		model.addAttribute("reviews",reviews);
+		model.addAttribute("reviews", reviews);
 //		model.addAttribute(attributeValue)
 		System.out.println(reviews);
 		return "readreview";

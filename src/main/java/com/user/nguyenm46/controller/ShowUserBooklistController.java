@@ -20,45 +20,38 @@ import com.user.nguyenm46.model.Book;
 import com.user.nguyenm46.model.BookInfo;
 import com.user.nguyenm46.model.BookUser;
 
+// Hsueh-Cheng Liu 300280496 
 @Controller
 @SessionAttributes("user")
 public class ShowUserBooklistController {
-	
+
 	@Autowired
 	BookUserDao bookuserDao;
 	@Autowired
 	BookDao bookDao;
-	
+
 	@ModelAttribute("showbooks")
 	public BookUser searchBook() {
 		return new BookUser();
 	}
-	
+
 	@GetMapping("/showUserBooklists")
 	public String showUserBooklist(HttpSession session, Model model) {
-		System.out.println("---------------------------");
-		BookUser bookuser = (BookUser) session.getAttribute("user");		
-		System.out.println(bookuser.getEmail());
-		
-	    if(bookuser != null) {
-	    	
-	    	List<Book> books = bookuserDao.findRegisteredBooks(bookuser.getEmail());
-	    	for(int i =0;i<books.size();i++) {
-	    		Book bookInfo = bookDao.findByCode(books.get(i).getCode());	    		
-	    		books.set(i, bookInfo);
-	    		System.out.println(bookInfo.getBooktitle());
-	    		System.out.println(bookInfo.getAuthor());
-	    		System.out.println(bookInfo.getPublishedyear());
-	    	}
-	    	System.out.println("---------------------------");
-	    	System.out.println(books.get(0).getAuthor());
-	    	model.addAttribute("books", books);
-	    	
-	    	return "show-user-booklists";
-	    }
-	    return "show-user-booklists";
+		BookUser bookuser = (BookUser) session.getAttribute("user");
+
+		if (bookuser != null) {
+			List<Book> books = bookuserDao.findRegisteredBooks(bookuser.getEmail());
+			for (int i = 0; i < books.size(); i++) {
+				Book bookInfo = bookDao.findByCode(books.get(i).getCode());
+				books.set(i, bookInfo);
+			}
+			model.addAttribute("books", books);
+
+			return "show-user-booklists";
+		}
+		return "show-user-booklists";
 	}
-	
+
 	@RequestMapping("/userhome")
 	public String handlerHome(HttpSession session, Model model) {
 		BookUser bookuser = (BookUser) session.getAttribute("user");

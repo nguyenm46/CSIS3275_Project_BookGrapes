@@ -12,6 +12,9 @@
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 <%@ page isELIgnored="false"%>
 </head>
+
+<!-- Hsueh-Cheng Liu 300280496, Khue Nguyen 300300461 -->
+
 <body>
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">

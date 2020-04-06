@@ -22,7 +22,6 @@ import com.user.nguyenm46.model.Publisher;
 @SessionAttributes("user")
 public class LoginController {
 
-	// (required = false)
 	@Autowired
 	BookUserDao bookuserDao;
 	@Autowired
@@ -118,7 +117,7 @@ public class LoginController {
 	 */
 	@GetMapping("/logoutPublisher")
 	public String logoutPublisher(HttpSession session, SessionStatus sessionStatus) {
-		
+
 		if (session.getAttribute("user") != null) {
 			session.removeAttribute("user");
 			session.invalidate();

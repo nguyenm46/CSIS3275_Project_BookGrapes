@@ -98,8 +98,8 @@ public class PublisherDaoImpl implements PublisherDao {
 	}
 
 	public boolean addPublisher(Publisher publisher) {
-		String sql = "insert into publishers values('" + publisher.getEmail() + "','"
-				+ publisher.getName() + "','"+ publisher.getPassword() + "')";
+		String sql = "insert into publishers values('" + publisher.getEmail() + "','" + publisher.getName() + "','"
+				+ publisher.getPassword() + "')";
 		Map<String, Object> params = new HashMap<String, Object>();
 		boolean result = namedParameterJdbcTemplate.update(sql, params) == 1;
 		return result;
