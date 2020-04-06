@@ -7,7 +7,15 @@ public class Book {
 	private String booktitle;
 	private String author;
 	private String publishedyear;
+	private String bookreview;
 	
+	
+	public String getBookreview() {
+		return bookreview;
+	}
+	public void setBookreview(String bookreview) {
+		this.bookreview = bookreview;
+	}
 	public String getCode() {
 		return code;
 	}

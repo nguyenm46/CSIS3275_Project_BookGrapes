@@ -81,11 +81,11 @@ public class LoginController {
 		System.out.println("PostMappign end");
 		if (bookuser != null && bookuser.getPassword().equals(loginInfo.getPassword())) {
 			model.addAttribute("user", bookuser);
-			model.addAttribute("message", "Welcome back");
+			model.addAttribute("msg", "Welcome back " + bookuser.getUsername());
 			return "bookuser-home";
 		} else if (publisher != null && publisher.getPassword().equals(loginInfo.getPassword())) {
 			model.addAttribute("user", publisher);
-			model.addAttribute("message", "Welcome back");
+			model.addAttribute("msg", "Welcome back " + publisher.getName());
 			return "publisher-home";
 		}
 

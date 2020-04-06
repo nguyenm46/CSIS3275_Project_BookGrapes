@@ -1,4 +1,5 @@
 DROP TABLE user_booklists IF EXISTS;
+DROP TABLE bookReviews IF EXISTS;
 DROP TABLE bookusers IF EXISTS;
 DROP TABLE published_booklists IF EXISTS;
 DROP TABLE books IF EXISTS;
@@ -36,5 +37,13 @@ CREATE TABLE published_booklists(
   email VARCHAR(50),
   code VARCHAR(50),
   foreign key (email) references publishers(email),
+  foreign key (code) references books(code)
+);
+
+CREATE TABLE bookreviews (
+  email VARCHAR(50),
+  code VARCHAR(50),
+  review VARCHAR(5000),
+  foreign key (email) references bookusers(email),
   foreign key (code) references books(code)
 );

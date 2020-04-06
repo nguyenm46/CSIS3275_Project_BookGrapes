@@ -20,9 +20,11 @@
 			<h2 class="text-center">Search a book ${message}</h2>
 			<div class="panel panel-info">
 				<div class="panel-body">
-					<form:form action="searchBook" method="post" role="form" modelAttribute="bookInfo">
+					<form:form action="searchBook" method="post" role="form"
+						modelAttribute="bookInfo">
 						<div class="form-group">
-							<label for="booktitle" class="col-md-3 control-label">Enter book title</label>
+							<label for="booktitle" class="col-md-3 control-label">Enter
+								book title</label>
 							<div class="col-md-9">
 								<form:input path="booktitle" cssClass="form-control" />
 							</div>
@@ -34,6 +36,7 @@
 							</div>
 						</div>
 					</form:form>
+					<br /> <a href="userhome">Back to Homepage</a>
 				</div>
 			</div>
 		</div>

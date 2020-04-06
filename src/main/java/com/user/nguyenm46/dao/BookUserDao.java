@@ -10,7 +10,7 @@ public interface BookUserDao {
 	
 	BookUser findByEmail(String email);
 
-	int registerBookByBookCode(String email, String code);
+	boolean registerBookByBookCode(String email, String code);
 
 	List<Book> findRegisteredBooks(String email);
 	

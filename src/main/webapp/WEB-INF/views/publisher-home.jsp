@@ -15,7 +15,7 @@
 <body>
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
-			<h1>${message}${publisher.name}!</h1>
+			<h1>${msg}${publisher.name}!</h1>
 			<hr />
 			<table class="table table-striped table-bordered">
 				<tr>

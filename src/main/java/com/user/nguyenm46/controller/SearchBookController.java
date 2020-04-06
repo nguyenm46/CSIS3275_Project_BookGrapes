@@ -2,6 +2,7 @@ package com.user.nguyenm46.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +27,18 @@ public class SearchBookController {
 
 	@Autowired 
 	BookDao bookDao;
+	@Autowired 
+	BookUserDao bookuserDao;
 	
 	@ModelAttribute("bookInfo")
 	public BookInfo searchBook() {
 		return new BookInfo();
 	}
+	@ModelAttribute("book")
+	public Book addToBookList() {
+		return new Book();
+	}
+
 
 	/**
 	 * Method to show the initial HTML form
@@ -72,10 +80,10 @@ public class SearchBookController {
 	    return "login";
 	}*/
 	
-	@PostMapping("/addToBooklist")
-	public String addToList(HttpSession session, @ModelAttribute("book") Book book, Model model) {
-		BookUser bookuser = (BookUser) session.getAttribute("bookuser");
-		String code = book.getCode();
+	@GetMapping("/addToBooklist")
+	public String addToList(HttpSession session, @ModelAttribute("book") Book book, Model model, HttpServletRequest request) {
+		BookUser bookuser = (BookUser) session.getAttribute("user");
+		String code = request.getParameter("bookcode");
 		
 		for(Book c : bookuser.getBooklist()) {
 			if(c.getCode().equals(code)) {
@@ -88,7 +96,16 @@ public class SearchBookController {
 			bookuser.setBooklist(bookuserDao.findRegisteredBooks(bookuser.getEmail()));
 		}*/
 		
-		return "redirect:login";
+//		return "redirect:login";
+		
+		boolean result = bookuserDao.registerBookByBookCode(bookuser.getEmail(),code);
+		model.addAttribute("msg", "Welcome back " + bookuser.getUsername());
+		if (result)
+			model.addAttribute("message", "<script>alert('Successed add to booklist!')</script>");
+		else
+			model.addAttribute("message", "<script>alert('Successed add to booklist!')</script>");
+
+		return "bookuser-home";
 	}
 	
 }

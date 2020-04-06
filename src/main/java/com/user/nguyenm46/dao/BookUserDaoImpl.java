@@ -46,16 +46,6 @@ public class BookUserDaoImpl implements BookUserDao {
 		return bookuser;
 	}
 
-	public int registerBookByBookCode(String email, String code) {
-
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("email", email);
-		params.put("code", code);
-
-		String sql = "INSERT INTO user_booklists VALUES(:email, :code)";
-		return namedParameterJdbcTemplate.update(sql, params);
-	}
-
 	public List<Book> findRegisteredBooks(String email) {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("email", email);
@@ -109,4 +99,17 @@ public class BookUserDaoImpl implements BookUserDao {
 		boolean result = namedParameterJdbcTemplate.update(sql, params) == 1;
 		return result;
 	}
+	
+
+	public boolean registerBookByBookCode(String email, String code) {
+		
+		String sql = "INSERT INTO user_booklists VALUES(:email, :code)";
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("email", email);
+		params.put("code", code);
+
+		boolean result = namedParameterJdbcTemplate.update(sql, params) == 1;
+		return result;
+	}
+
 }

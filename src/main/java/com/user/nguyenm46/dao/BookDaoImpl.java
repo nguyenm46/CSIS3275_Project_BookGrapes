@@ -35,7 +35,7 @@ public class BookDaoImpl implements BookDao {
 
 		return result;
 	}
-	
+
 	public Book findByTitle(String booktitle) {
 
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -43,6 +43,16 @@ public class BookDaoImpl implements BookDao {
 
 		String sql = "SELECT * FROM books WHERE booktitle=:booktitle";
 		Book result = namedParameterJdbcTemplate.queryForObject(sql, params, new BookMapper());
+
+		return result;
+	}
+	
+	public List<String> searchUserReview(String code) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("code", code);
+		String sql = "SELECT * FROM bookreviews WHERE code=:code";
+		
+		List<String> result = namedParameterJdbcTemplate.query(sql, params, new ReviewMapper());
 
 		return result;
 	}
@@ -70,18 +80,75 @@ public class BookDaoImpl implements BookDao {
 			return book;
 		}
 	}
+	
+	private static final class ReviewMapper implements RowMapper<String> {
+
+		public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+			String review = rs.getString("review");
+			return review;
+		}
+	}
 
 	public boolean addBook(Book book, String size) {
-		String sql = "insert into books values('" 
-				+ size + "','" 
-				+ book.getBooktitle() + "','" 
-				+ book.getAuthor()+ "','" 
-				+ book.getPublishedyear() + "')";
+		String sql = "insert into books values('" + size + "','" + book.getBooktitle() + "','" + book.getAuthor()
+				+ "','" + book.getPublishedyear() + "')";
 		Map<String, Object> params = new HashMap<String, Object>();
 		boolean result = namedParameterJdbcTemplate.update(sql, params) == 1;
 		return result;
 	}
 	
-	//"update table set namme1=value 1, name2=value2, where ---"
+	public boolean addBookReview(String code, String email, String review) {
+		String sql = "insert into bookreviews values('" 
+				+ email + "','" 
+				+ code + "','" 
+				+ review + "')";
+		Map<String, Object> params = new HashMap<String, Object>();
+		boolean result = namedParameterJdbcTemplate.update(sql, params) == 1;
+		return result;
+	}
+
+
+	public boolean editbook(Book book) {
+		System.out.println("PassData "+book.getCode());
+		System.out.println("PassData "+book.getAuthor());
+		System.out.println("PassData "+book.getBooktitle());
+		System.out.println("PassData "+book.getPublishedyear());
+		Book updateBook = findByCode(book.getCode());
+		System.out.println("SearchData "+updateBook.getCode());
+		System.out.println("SearchData "+updateBook.getAuthor());
+		System.out.println("SearchData "+updateBook.getBooktitle());
+		System.out.println("SearchData "+updateBook.getPublishedyear());
+		String booktitle = null, author = null, publishedyear = null;
+		
+		if (book.getAuthor() == null)
+			author = updateBook.getAuthor();
+		else
+			author = book.getAuthor();
+		
+		if (book.getBooktitle() == null)
+			booktitle = updateBook.getBooktitle();
+		else
+			booktitle = book.getBooktitle();
+		
+		if (book.getPublishedyear() == null)
+			publishedyear = updateBook.getPublishedyear();
+		else
+			publishedyear = book.getPublishedyear();
+
+		String sql = "update books set " + "booktitle='" + booktitle + "'," + "author='" + author + "',"
+				+ "publishedyear='" + publishedyear + "'" + "where code='" + book.getCode() + "'";
+		Map<String, Object> params = new HashMap<String, Object>();
+		boolean result = namedParameterJdbcTemplate.update(sql, params) == 1;
+		return result;
+	}
+
+
+	// "update table set namme1=value 1, name2=value2, where ---"
+//	CREATE TABLE books (
+//			  code VARCHAR (50) PRIMARY KEY,
+//			  booktitle  VARCHAR (50),
+//			  author  VARCHAR (50),
+//			  publishedyear VARCHAR (30)
+//			);
 
 }

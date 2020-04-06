@@ -14,4 +14,10 @@ public interface BookDao {
 	List<Book> findAll();
 	
 	boolean addBook(Book book, String size);
+	
+	boolean editbook(Book book);
+	
+	boolean addBookReview(String code, String email, String review);
+	
+	List<String> searchUserReview(String code);
 }

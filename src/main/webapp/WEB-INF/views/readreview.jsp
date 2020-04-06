@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>BookGrapes - Booklist</title>
+<title>BookGrapes - Book Review</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
@@ -17,12 +17,12 @@
 
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
-			<h1>Your Booklist</h1>
+			<h1>This Book Review</h1>
 			<hr />
 			<table  modelAttribute="showbooks" class="table table-striped table-bordered">
-				<c:forEach var="book" items="${books}">
+				<c:forEach var="review" items="${reviews}">
 					<tr>
-						<td>BooK Title: ${book.booktitle}, Book Author: ${book.author}, Book Published Year: ${book.publishedyear}  </td>
+						<td>BooK review: ${review} </td>
 					</tr>
 				</c:forEach>
 			</table>

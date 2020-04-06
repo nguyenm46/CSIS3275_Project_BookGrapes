@@ -78,13 +78,14 @@ public class RegisterNewBookController {
 		boolean result = bookDao.addBook(book,String.valueOf(books.size()));
 		Publisher publisher = (Publisher) session.getAttribute("user");
 		publisherDao.publishedBookByBookCode(publisher.getEmail(),String.valueOf(books.size()));
+		model.addAttribute("msg", "Welcome back " + publisher.getName());
 		
 		if (result)
 			model.addAttribute("message", "<script>alert('Successed add new book!')</script>");
 		else
 			model.addAttribute("message", "<script>alert('Successed add new book!')</script>");
 
-		return "home";
+		return "publisher-home";
 	}
 	
 

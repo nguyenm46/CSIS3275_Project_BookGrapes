@@ -15,7 +15,7 @@
 <body>
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
-			<h1>${message} ${bookuser.fullname}!</h1>
+			<h1>${msg} ${bookuser.fullname}!</h1>
 			<hr />
 			<table class="table table-striped table-bordered">
 				<tr>
@@ -31,7 +31,7 @@
 			<br/>
 			<a href="searchBook">Search books</a>
 			<br/> 
-			<a href="showUserBooklists">Manage booklists</a>
+			<a href="showUserBooklists">Show User booklists</a>
 			<br/> 
 			<a href="home">Back to Homepage</a>
 			<br/>

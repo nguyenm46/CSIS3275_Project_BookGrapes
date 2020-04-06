@@ -32,10 +32,13 @@
 					<td><b>Published Year </b> : ${book.publishedyear}</td>
 				</tr>
 			</table>
-			<a href="addToBooklist" href="#" onclick="document.getElementById('code').value='${book.code}';
-				document.getElementById('bookResult').submit();">Add to your booklist</a>
+			<a href="addToBooklist?bookcode=${book.code}">Add to your booklist</a>
 			<br/>
-			<a href="writeReview">Write a review</a>
+			<a href="addReview?booktitle=${book.booktitle}">Write a review</a>
+			<br/>
+			<a href="readReview?bookcode=${book.code}">Read user review</a>
+			<br/>
+			<a href="userhome">Back to Homepage</a>
 		</div>
 	</div>
 </body>
