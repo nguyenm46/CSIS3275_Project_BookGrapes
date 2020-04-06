@@ -54,8 +54,6 @@ public class SearchBookController {
 	@PostMapping("/searchBook")
 	public String login(@ModelAttribute("bookInfo") BookInfo bookInfo, Model model) {
 		Book book = bookDao.findByTitle(bookInfo.getBooktitle());
-		
-
 		if (book != null) {
 			model.addAttribute("book", book);
 			System.out.println(book.getAuthor());
