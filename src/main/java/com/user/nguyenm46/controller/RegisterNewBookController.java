@@ -66,9 +66,9 @@ public class RegisterNewBookController {
 		model.addAttribute("msg", "Welcome back " + publisher.getName());
 
 		if (result)
-			model.addAttribute("message", "<script>alert('Successed add new book!')</script>");
+			model.addAttribute("message", "<script>alert('You have successfully added new book!')</script>");
 		else
-			model.addAttribute("message", "<script>alert('Successed add new book!')</script>");
+			model.addAttribute("message", "<script>alert('You have successfully added new book!')</script>");
 
 		return "publisher-home";
 	}

@@ -85,9 +85,9 @@ public class ManagePublishedBooksController {
 		boolean result = bookDao.editbook(book);
 		model.addAttribute("msg", "Welcome back " + publisher.getName());
 		if (result)
-			model.addAttribute("message", "<script>alert('Successed edit book info!')</script>");
+			model.addAttribute("message", "<script>alert('Successfully edited book info!')</script>");
 		else
-			model.addAttribute("message", "<script>alert('Not uccessed edit book info!')</script>");
+			model.addAttribute("message", "<script>alert('NOT successfully edited book info!')</script>");
 		return "publisher-home";
 	}
 

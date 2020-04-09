@@ -80,9 +80,9 @@ public class SearchBookController {
 		boolean result = bookuserDao.registerBookByBookCode(bookuser.getEmail(), code);
 		model.addAttribute("msg", "Welcome back " + bookuser.getUsername());
 		if (result)
-			model.addAttribute("message", "<script>alert('Successed add to booklist!')</script>");
+			model.addAttribute("message", "<script>alert('Book has been successfully added to booklist!')</script>");
 		else
-			model.addAttribute("message", "<script>alert('Successed add to booklist!')</script>");
+			model.addAttribute("message", "<script>alert('Book has been successfully added to booklist!')</script>");
 
 		return "bookuser-home";
 	}

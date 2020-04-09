@@ -29,7 +29,7 @@
 					<td><b>Full Name </b> : ${bookuser.fullname}</td>
 				</tr>
 				<tr>
-					<td><b>UserName </b> : ${bookuser.dob}</td>
+					<td><b>D.O.B </b> : ${bookuser.dob}</td>
 				</tr>
 				<tr>
 					<td><b>Email </b>: ${bookuser.email}</td>
